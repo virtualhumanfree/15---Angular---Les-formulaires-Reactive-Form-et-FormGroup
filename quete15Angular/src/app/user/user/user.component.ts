@@ -1,6 +1,8 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { passwordValidator } from './../../password-validator';
 import { Component, OnInit } from '@angular/core';
+import { emailValidator } from 'src/app/email-validator';
 
 @Component({
   selector: 'app-user',
@@ -13,8 +15,8 @@ export class UserComponent implements OnInit {
 
   userForm = this.fb.group({
     credentials: this.fb.group({
-        email: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]],
-        mdp: ['', Validators.required]
+        email: ['', [Validators.required, Validators.email, emailValidator]],
+        mdp: ['', [Validators.required, passwordValidator]]
     })
 });
 
