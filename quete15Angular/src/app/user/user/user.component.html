@@ -1,0 +1,14 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="credentials">
+    <label>
+    Email:
+    <input type="email"name="email" formControlName="email">
+    </label>
+    <label>
+    Mot de passe:
+    <input type="text" name="mdp" formControlName="mdp">
+    </label>
+  </div>
+<button type="submit" [disabled]="!userForm.valid">Enter</button>
+</form>
+
